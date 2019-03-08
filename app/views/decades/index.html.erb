@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Decades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Song</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decades.each do |decade| %>
+
+      <tr>
+
+        <td><strong><%= decade.title %></strong></td>
+        <td><%= decade.description %></td>
+        <div class="imgs">
+        <td><%= image_tag decade.image, class:"img-fluid" %></td>
+        </div> 
+        <td>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="<%= decade.song %>"></iframe>
+
+        <td><%= link_to 'Show', decade %></td>
+        <td><%= link_to 'Edit', edit_decade_path(decade) %></td>
+        <td><%= link_to 'Destroy', decade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Decade', new_decade_path %>

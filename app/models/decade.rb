@@ -1,0 +1,2 @@
+class Decade < ApplicationRecord
+end
